@@ -1,0 +1,101 @@
+Mangodb
+commands
+show dbs - will show all the database you are working on
+use dtname - if you want to switch to working database
+
+-- while using use the Mangodb doesnt care if the database exist and if you create the db it will automatically create the db for you
+
+db - will show the current database you are in
+
+show collections - this one will show all the collection are in the the working database
+
+--- one can also create variable
+
+var name = "john"
+ -- change the name variable
+    name = "mary"
+
+exit - this one will exist the shell
+
+mongosh - this one will start the start
+
+db.books.insertOne({}) - this will add new doc to the collection
+
+db.authors.insertOne({}) - this one will create a new collection called authors and then add the data into it/single document
+
+db.books.insertMany([]) - this one will add more than one doc into the collection.
+
+
+//filtering
+
+
+db.books.find() - this one will show the first 20 result we want.
+
+it - will iterate the next 20 result
+
+db.books.find({author: "john doe", pages: 200}) - this will filter as per the arguement given
+
+
+db.books.find({author: "john doe", pages: 200}, {title: 1}) - the second arguement passed will filter the result and will only give us the result for title only
+
+db.books.find({}, {title: 1}) - this one will give all the the result but will only show the result for the title in very data we fetched.
+
+db.books.findOne({arguement}) - this one will be used to find exactly the one thing the user wants to find
+
+// sorting/ limiting data.
+method chaining
+count() - this one will count the number of results we are fetching.
+
+db.books.find().count() - this one will count the number of result we are looking for
+
+limit() - this one will limit the number doc we will get back
+
+db.books.find().limit(2) - this one limit us to only the 2 docs results
+
+
+db.books.find().sort({title: 1}) - this one will sort the data in ascending order.
+
+
+// Nested document //
+operators and complex data
+
+denoted by the $ operator
+
+db.book.find({rating: {$gt: 7}}) - this will filter will bring back the result that is greater than seven
+
+it will only share thoses data that are greater than seven that is eight and above.
+
+db.book.find({rating: {$lt: 7}}) - this one shows that less than seven
+
+db.book.find({rating: {$lte: 7}}) - this one shows that less than or equal to
+
+
+db.book.find({rating: {$lte: 7}, author: "victor})
+
+// or: [{}] - this one is used to find the data that lies between the two specification specified in the array.
+
+// $in - shows certain values is within range of values
+
+db.book.find({rating: {$in: [8,4,7]}}) - this one will find the books with the rating of either 8, 4 or 7
+
+db.book.find({rating: {$nin: [8,7,9]}}) - this one will fetch the book where the rating is not 8, 4, 7
+
+//querying arrays
+
+db.book.find({genres: "test 6"}) - this will filter through and array of key genres and look if we have the value of test 6 and then return the result
+
+db.book.find({rating: {$all: ["test", "test 2]}}) - this one will fetch the result that only have those two values
+
+
+// querying based on the nested object.
+
+db.book.find({"reviews.name": "hillary"}) - this one will filter the nested object
+
+// deleting doc using shell
+db.book.deleteOne({}) - this is used to delete the object as specified in the arguement
+
+db.book.deleteMany({}) - delete multiple book based on the arguement given
+
+
+//Mangodb db drivers.
+// npm install mongodb@6.3
