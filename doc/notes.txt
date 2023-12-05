@@ -99,3 +99,29 @@ db.book.deleteMany({}) - delete multiple book based on the arguement given
 
 //Mangodb db drivers.
 // npm install mongodb@6.3
+
+
+
+//tutorial from the mangodb class
+const {MongoClient} = require('mongodb')
+const uri = require('./atlas_uri')
+
+console.log(uri)
+
+// initiating connection with the database
+
+const client = new MongoClient(uri)
+
+// connecting to the database
+
+
+const {MongoClient} = require('mongodb')
+const uri = require('./atlas_uri')
+
+console.log(uri)
+
+// initiating connection with the database
+
+const client = new MongoClient(uri)
+
+// connecting to the database

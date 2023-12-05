@@ -7,11 +7,15 @@
     "doc": "doc"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js",
+    "dev": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mongodb": "6.3"
+    "express": "^4.18.2",
+    "mongodb": "6.3",
+    "nodemon": "^3.0.2"
   }
 }
