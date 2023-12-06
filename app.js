@@ -18,10 +18,14 @@ connectToDb((err) => {
 });
 
 app.get("/books", (req, res) => {
+  const page = req.query.p || 0;
+  const bookPage = 3;
   let books = [];
   db.collection("books")
     .find() // return what is called a cursor which points to the collection of all doc
     .sort({ author: 1 })
+    .skip(page * bookPage)
+    .limit(bookPage)
     .forEach((book) => books.push(book))
     .then(() => {
       res.status(200).json({ success: true, data: books });

@@ -125,3 +125,5 @@ console.log(uri)
 const client = new MongoClient(uri)
 
 // connecting to the database
+
+// pagination
